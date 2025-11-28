@@ -1,0 +1,416 @@
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* font */
+@font-face {
+    font-family: "1";
+    src: url(Quicksand-Regular.ttf);
+}
+
+body {
+    font-family: "1", sans-serif;
+    background-color: #2b1b17;
+    background-image: linear-gradient(to bottom, #fdfbf7, #f2ead3); 
+}
+
+/* header */
+.header-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.header-container img {
+    width: 110%;
+    height: auto;
+    display: block;
+    margin-left: -1%;
+    margin-bottom: -0.15%;
+}
+
+/* nav */
+nav {
+    position: sticky; 
+    top: 0;
+    width: 100%;
+    background-color: #ffecd1;
+    border-bottom: 2px solid #ddd;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    z-index: 999;
+}
+
+.nav-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo img {
+    width: 40px;
+}
+
+.nav-list {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-item {
+    position: relative; 
+    padding: 10px 0;
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: #0a2a43;
+    font-weight: 600;
+    padding: 8px 15px;
+    transition: 0.3s;
+    border-radius: 20px;
+}
+
+.nav-item a:hover, .nav-item .active {
+    color: white;
+    background-color: rgb(161, 216, 235);
+}
+
+/* dropdown */
+.dropdown-list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    min-width: 180px; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    flex-direction: column;
+    margin-top: 5px;
+    z-index: 1000;
+}
+
+.dropdown-list a {
+    display: block;
+    padding: 12px 20px;
+    color: #0a2a43;
+    font-weight: 500;
+}
+
+.dropdown-list a:hover {
+    background: #f1f1f1;
+    color: rgb(161, 216, 235);
+}
+
+.dropdown:hover .dropdown-list {
+    display: flex;
+}
+
+.dropdown-list::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: transparent;
+}
+
+/* isi */
+.content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    text-align: justify;
+}
+
+.judul {
+    padding: 30px 20px;
+    margin: 30px auto;
+    border: 3px solid #02192b;
+    border-radius: 15px;
+    max-width: 900px;
+    text-align: center;
+}
+
+hr {
+    border: 0;
+    border-top: 2px solid #02192b;
+    margin: 15px 0;
+}
+
+/* pendahuluan */
+.pendahuluan {
+    margin: 50px auto;
+    padding: 0 10px;
+}
+
+.pendahuluan h2 {
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+}
+
+hr {
+    width: 80px;
+    height: 3px;
+    border-radius: 3px;
+    margin-bottom: 25px;
+}
+
+/* pengertian sdgs */
+.apa-sdgs {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 40px;
+    align-items: center;
+    margin: 50px 0;
+}
+
+.sdgs-img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.apa-sdgs h2 {
+    margin-top: 0;
+}
+
+.apa-sdgs ul {
+    margin-top: 15px;
+    margin-bottom: 0;
+    padding-left: 20px;
+    list-style-position: outside;
+}
+
+.apa-sdgs li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+/* jenis sdgs */
+.sdg-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 25px;
+    margin-top: 30px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sdg-card {
+    position: relative;
+    border: 3px solid;
+    border-radius: 15px;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #ddd; 
+}
+
+.sdg-card:hover {
+    transform: translateY(-10px); 
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+.card-content {
+    position: absolute; 
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 10px;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 70%, transparent 100%);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    min-height: 100px; 
+}
+
+.sdg-card h3 {
+    text-align: center; 
+    margin: 0;
+    width: 100%;
+    font-size: 1.3rem;
+    color: whitesmoke; 
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8); 
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.card-hover {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; 
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    transform: translateY(100%);
+    transition: transform 0.4s ease-in-out;
+}
+
+.sdg-card:hover .card-hover {
+    transform: translateY(0);
+}
+
+.sdg-card p {
+    text-align: center; 
+    margin: 0;
+    width: 100%;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+/* gambar sdgs */
+.sdg-1 { 
+    background-image: url('Sustainable_Development_Goal_1.png'); 
+    border-color: #eb1c2d; 
+}
+.sdg-1:hover .card-hover { background: rgba(235, 28, 45, 0.95);}
+
+.sdg-2 { 
+    background-image: url('Sustainable_Development_Goal_2.png'); 
+    border-color: #d3a029; 
+}
+.sdg-2:hover .card-hover {background: rgba(211, 160, 41, 0.95);}
+
+.sdg-3 { 
+    background-image: url('Sustainable_Development_Goal_3.png'); 
+    border-color: #229c46; 
+}
+.sdg-3:hover .card-hover { background: rgba(34, 156, 70, 0.95);}
+
+.sdg-4 { 
+    background-image: url('Sustainable_Development_Goal_4.png'); 
+    border-color: #c31f33; 
+}
+.sdg-4:hover .card-hover { background: rgba(195, 31, 51, 0.95);}
+
+.sdg-5 { 
+    background-image: url('Sustainable_Development_Goal_5.png'); 
+    border-color: #ef3e27; 
+}
+.sdg-5:hover .card-hover { background: rgba(239, 62, 39, 0.95); }
+
+.sdg-6 { 
+    background-image: url('Sustainable_Development_Goal_6.png'); 
+    border-color: #00b0da; 
+}
+.sdg-6:hover .card-hover { background: rgba(0, 176, 218, 0.95); }
+
+.sdg-7 { 
+    background-image: url('Sustainable_Development_Goal_7.png'); 
+    border-color: #fdb80b; 
+}
+.sdg-7:hover .card-hover { background: rgba(253, 184, 11, 0.95); }
+
+.sdg-8 { 
+    background-image: url('Sustainable_Development_Goal_8.png'); 
+    border-color: #8f1838; 
+}
+.sdg-8:hover .card-hover { background: rgba(143, 24, 56, 0.95);}
+
+.sdg-9 { 
+    background-image: url('Sustainable_Development_Goal_9.png'); 
+    border-color: #f36d20; 
+}
+.sdg-9:hover .card-hover { 
+    background: rgba(243, 109, 32, 0.95); 
+}
+
+.sdg-10 { 
+    background-image: url('Sustainable_Development_Goal_10.png'); 
+    border-color: #e20c85; 
+}
+.sdg-10:hover .card-hover { 
+    background: rgba(226, 12, 133, 0.95);}
+
+.sdg-11 { 
+    background-image: url('Sustainable_Development_Goal_11.png'); 
+    border-color: #f99d26; 
+}
+.sdg-11:hover .card-hover { background: rgba(249, 157, 38, 0.95);}
+
+.sdg-12 { 
+    background-image: url('Sustainable_Development_Goal_12.png'); 
+    border-color: #d08e25; 
+}
+.sdg-12:hover .card-hover { background: rgba(208, 142, 37, 0.95);}
+
+.sdg-13 { 
+    background-image: url('Sustainable_Development_Goal_13.png'); 
+    border-color: #46783a; 
+}
+.sdg-13:hover .card-hover { background: rgba(70, 120, 58, 0.95);}
+
+.sdg-14 { 
+    background-image: url('Sustainable_Development_Goal_14.png'); 
+    border-color: #007dbc; 
+}
+.sdg-14:hover .card-hover { background: rgba(0, 125, 188, 0.95);}
+
+.sdg-15 { 
+    background-image: url('Sustainable_Development_Goal_15.png'); 
+    border-color: #3cb247; 
+}
+.sdg-15:hover .card-hover { background: rgba(60, 178, 71, 0.95);}
+
+.sdg-16 { 
+    background-image: url('Sustainable_Development_Goal_16.png'); 
+    border-color: #02558b; 
+}
+.sdg-16:hover .card-hover { background: rgba(2, 85, 139, 0.95);}
+
+.sdg-17 { 
+    background-image: url('Sustainable_Development_Goal_17.png'); 
+    border-color: #183668; 
+}
+.sdg-17:hover .card-hover { background: rgba(25, 54, 104, 0.95);}
+
+.sdg-logo-card {
+    background-color: white; 
+    border: 3px solid #02192b; 
+}
+
+.logo-content {
+    background: none;
+    position: relative;
+    height: 100%;
+    align-items: center;
+}
+
+.logo-sdgs {
+    width: 230px;
+}
+
+.ajakan {
+    margin-top: 50px;
+    padding: 30px;
+    background: #eef;
+    border-radius: 15px;
+    text-align: center;
+}
+
+/* footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #02192b;
+    color: white;
+    margin-top: 50px;
+}

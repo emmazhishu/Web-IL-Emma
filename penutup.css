@@ -1,0 +1,302 @@
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* font */
+@font-face {
+    font-family: "1";
+    src: url(Quicksand-Regular.ttf);
+}
+
+body {
+    font-family: "1", sans-serif;
+    /* ADDED SUBTLE DOT PATTERN */
+    background-color: #fdfbf7;
+    background-image: radial-gradient(#ddd 1px, transparent 0);
+    background-size: 20px 20px;
+}
+
+/* header */
+.header-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.header-container img {
+    width: 110%;
+    height: auto;
+    display: block;
+    margin-left: -1%;
+    margin-bottom: -0.15%;
+}
+
+/* nav (Unchanged for brevity) */
+nav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: #ffecd1;
+    border-bottom: 2px solid #ddd;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    z-index: 999;
+}
+
+.nav-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo img {
+    width: 40px;
+}
+
+.nav-list {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-item {
+    position: relative; 
+    padding: 10px 0;
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: #0a2a43;
+    font-weight: 600;
+    padding: 8px 15px;
+    transition: 0.3s;
+    border-radius: 20px;
+}
+
+.nav-item a:hover, .nav-item .active {
+    color: white;
+    background-color: rgb(161, 216, 235);
+}
+
+/* dropdown */
+.dropdown-list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    min-width: 180px; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    flex-direction: column;
+    margin-top: 5px;
+    z-index: 1000;
+}
+
+.dropdown-list a {
+    display: block;
+    padding: 12px 20px;
+    color: #0a2a43;
+    font-weight: 500;
+}
+
+.dropdown-list a:hover {
+    background: #f1f1f1;
+    color: rgb(161, 216, 235);
+}
+
+.dropdown:hover .dropdown-list {
+    display: flex;
+}
+
+.dropdown-list::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: transparent;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ================================== */
+/* NEW LAYOUT STYLES START HERE       */
+/* ================================== */
+
+.main-wrapper {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px; /* Increased gap */
+}
+
+/* General Card Style */
+.content-card {
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.card-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.card-header h2 {
+    color: #02192b;
+    font-size: 2.2rem; /* Made header bigger */
+    margin-bottom: 15px;
+    font-weight: 800;
+}
+
+.card-header h2 i {
+    color: #5a7d7c; 
+    margin-right: 10px;
+}
+
+.card-header hr {
+    width: 100px; /* Made line longer */
+    height: 4px;
+    background-color: #5a7d7c;
+    border: none;
+    border-radius: 2px;
+    margin: 0 auto;
+}
+
+.card-text p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+    color: #444;
+    text-align: justify;
+    font-size: 1.05rem;
+}
+
+.intro-paragraph, .final-statement {
+    text-align: center;
+    font-style: italic;
+    color: #02192b;
+    font-weight: 600;
+}
+
+/* --- Summary List Style (For Kesimpulan) --- */
+.summary-list {
+    list-style: none; /* Remove default list style */
+    padding: 0;
+    margin: 40px 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+.summary-list li {
+    background-color: #f9f6e8;
+    border-left: 6px solid #5a7d7c; /* Teal accent bar */
+    padding: 20px 25px 20px 40px;
+    border-radius: 8px;
+    position: relative;
+    transition: background-color 0.3s;
+}
+
+.summary-list li:hover {
+    background-color: #fff9ed;
+}
+
+.summary-list li h3 {
+    color: #0a2a43;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+/* Custom Numbering Style */
+.summary-list li::before {
+    content: counter(section-counter);
+    counter-increment: section-counter;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 30px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #ffecd1; /* Light cream color */
+    background-color: #5a7d7c; /* Teal */
+    border-radius: 8px 0 0 8px;
+    margin-left: -40px; /* Pull number out of the box */
+}
+.conclusion-card {
+    counter-reset: section-counter;
+}
+
+/* --- Specific Style: Refleksi --- */
+.reflection-card {
+    background-color: #fffbf2;
+    border: 1px solid #e0d8c3;
+}
+
+/* Highlight Boxes for Serviam & Pancasila */
+.highlight-box {
+    margin: 30px 0;
+    padding: 25px;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+}
+
+.highlight-box:hover {
+    transform: translateY(-5px); /* Lift on hover */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.highlight-box h3 {
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+    color: #02192b;
+}
+
+.highlight-box h3 i {
+    margin-right: 8px;
+}
+
+/* Serviam Box Style */
+.serviam-box {
+    background-color: #ffeaea; /* Light pink/red background */
+    border: 1px solid #ff7b7b; 
+    border-left: 8px solid #ff7b7b; 
+}
+.serviam-box h3 i { color: #ff7b7b; }
+
+/* Pancasila Box Style */
+.pancasila-box {
+    background-color: #e6f7ff; /* Light blue/teal background */
+    border: 1px solid #5a7d7c;
+    border-left: 8px solid #5a7d7c;
+}
+.pancasila-box h3 i { color: #5a7d7c; }
+
+
+/* footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #02192b;
+    color: white;
+    margin-top: 50px;
+}

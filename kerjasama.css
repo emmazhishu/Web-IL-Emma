@@ -1,0 +1,261 @@
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* font */
+@font-face {
+    font-family: "1";
+    src: url(Quicksand-Regular.ttf);
+}
+
+body {
+    font-family: "1", sans-serif;
+    background-color: #2b1b17; /* Dark background behind everything (optional, change to white if preferred) */
+    background-image: linear-gradient(to bottom, #fdfbf7, #f2ead3); /* Or a subtle gradient */
+}
+
+/* header */
+.header-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.header-container img {
+    width: 110%;
+    height: auto;
+    display: block;
+    margin-left: -1%;
+    margin-bottom: -0.15%;
+}
+
+/* nav */
+nav {
+    position: sticky; /* Changed to sticky so it stays at top when scrolling */
+    top: 0;
+    width: 100%;
+    background-color: #ffecd1;
+    border-bottom: 2px solid #ddd;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    z-index: 999;
+}
+
+.nav-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo img {
+    width: 40px;
+}
+
+.nav-list {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-item {
+    position: relative; 
+    padding: 10px 0;
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: #0a2a43;
+    font-weight: 600;
+    padding: 8px 15px;
+    transition: 0.3s;
+    border-radius: 20px;
+}
+
+.nav-item a:hover, .nav-item .active {
+    color: white;
+    background-color: rgb(161, 216, 235);
+}
+
+/* dropdown */
+.dropdown-list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    min-width: 180px; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    flex-direction: column;
+    margin-top: 5px;
+    z-index: 1000;
+}
+
+.dropdown-list a {
+    display: block;
+    padding: 12px 20px;
+    color: #0a2a43;
+    font-weight: 500;
+}
+
+.dropdown-list a:hover {
+    background: #f1f1f1;
+    color: rgb(161, 216, 235);
+}
+
+.dropdown:hover .dropdown-list {
+    display: flex;
+}
+
+/* Invisible bridge for dropdown hover */
+.dropdown-list::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: transparent;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* isi */
+.content {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h1 {
+    color: #02192b;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+/*  */
+.category-title {
+    text-align: left;
+    margin-bottom: 30px;
+    margin-top: 60px;
+}
+
+.category-title h2 {
+    color: #8b5e3c; /* Brownish gold from your reference */
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.category-title hr {
+    border: 0;
+    height: 3px;
+    background: #8b5e3c;
+    width: 100px;
+    margin-top: 10px;
+    border-radius: 2px;
+}
+
+/*  */
+.coop-card {
+    display: flex;
+    background-color: #f9f6e8; /* Light cream background */
+    border-radius: 20px;
+    overflow: hidden; /* Ensures image corners are rounded */
+    margin-bottom: 40px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    border: 1px solid #e0d8c3;
+    transition: transform 0.3s ease;
+    min-height: 300px;
+}
+
+.coop-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+}
+
+/* image */
+.card-image {
+    flex: 1; /* Takes up 50% width */
+    min-width: 300px;
+    position: relative;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image covers area without stretching */
+    display: block;
+}
+
+/* text */
+.card-text {
+    flex: 1; /* Takes up 50% width */
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-text h3 {
+    color: #2c3e50;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #007b82;
+    display: inline-block;
+    padding-bottom: 5px;
+    width: fit-content;
+}
+
+.card-text p {
+    color: #555;
+    line-height: 1.8;
+    font-size: 1.05rem;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+/* Button style link */
+.read-more {
+    text-decoration: none;
+    color: white;
+    background-color: #007b82;
+    padding: 10px 20px;
+    border-radius: 25px;
+    width: fit-content;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.read-more:hover {
+    background-color: #02192b;
+}
+
+.coop-card.reverse {
+    flex-direction: row-reverse; /* Flips the order */
+}
+
+/* footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #02192b;
+    color: white;
+    margin-top: 50px;
+}
